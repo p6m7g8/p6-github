@@ -1,4 +1,4 @@
-gh_oauth_token_get() {
+p6_github_oauth_token_get() {
     local gh_api="$1"
     local user="$2"
     local pass="$3"
@@ -13,7 +13,7 @@ gh_oauth_token_get() {
     GH_TOKEN_ID=$id
 }
 
-gh_oauth_token_del() {
+p6_github_oauth_token_del() {
     local gh_api="$1"
     local user="$2"
     local pass="$3"

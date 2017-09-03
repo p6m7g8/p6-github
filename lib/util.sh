@@ -1,4 +1,4 @@
-gh_thing_parse() {
+p6_github_thing_parse() {
     local thing="$1"
 
     if [[ ${thing} = /* ]]; then
@@ -17,7 +17,7 @@ gh_thing_parse() {
     fi
 }
 
-gh_repo_clone() {
+p6_github_repo_clone() {
     local uri="$1"
     local ver="$2"
     local repo="$3"
@@ -38,7 +38,7 @@ gh_repo_clone() {
     echo ${dir}
 }
 
-gh_repo_file_commit() {
+p6_github_repo_file_commit() {
     [ -z "${TEST_MODE}" ] || return
 
     local repo="$1"
@@ -47,7 +47,7 @@ gh_repo_file_commit() {
     local file="$4"
     local msg="$5"
 
-    gh_thing_parse "${repo}"
+    p6_github_thing_parse "${repo}"
     local clone_dir=$(git_repo_clone "${GH}" "" "${repo}")
 
     mkdir -p ${clone_dir}/${dir}

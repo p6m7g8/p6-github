@@ -1,4 +1,4 @@
-gh_api_paginate() {
+p6_github_api_paginate() {
     local url="$1"
     local auth="$2"
 
@@ -28,33 +28,33 @@ gh_api_paginate() {
     rm -f $dir
 }
 
-gh_api_orgs_list() {
+p6_github_api_orgs_list() {
     local gh="$1"
     local pass="$2"
     local auth="$3"
 
-    gh_api_paginate "${gh}/organizations" "$auth" | awk '/login/{ print $2 }' | sed -e 's/[",]//g' | sort
+    p6_github_api_paginate "${gh}/organizations" "$auth" | awk '/login/{ print $2 }' | sed -e 's/[",]//g' | sort
 }
 
-gh_api_org_repos_list() {
+p6_github_api_org_repos_list() {
     local gh_api="$1"
     local org="$2"
     local auth="$3"
 
-    local repos="$(gh_api_paginate "${gh_api}/orgs/${org}/repos" "$auth")"
-    echo $repos | _gh_repos_extract "$org"
+    local repos="$(p6_github_api_paginate "${gh_api}/orgs/${org}/repos" "$auth")"
+    echo $repos | _p6_github_repos_extract "$org"
 }
 
-gh_api_user_repos_list() {
+p6_github_api_user_repos_list() {
     local gh_api="$1"
     local user="$2"
     local auth="$3"
 
-    local repos=$(gh_api_paginate "${gh_api}/user/repos?type=owner" "$auth")
-    echo $repos | _gh_repos_extract "$user"
+    local repos=$(p6_github_api_paginate "${gh_api}/user/repos?type=owner" "$auth")
+    echo $repos | _p6_github_repos_extract "$user"
 }
 
-gh_api_org_repos_clone() {
+p6_github_api_org_repos_clone() {
     local gh="$1"
     local gh_api="$2"
     local org="$3"
@@ -62,24 +62,24 @@ gh_api_org_repos_clone() {
     local auth="$5"
     local parallel="${6:-8}"
 
-    local repos=$(gh_api_org_repos_list "$gh_api" "$org" "$auth")
+    local repos=$(p6_github_api_org_repos_list "$gh_api" "$org" "$auth")
 
-    run_parallel "0" "$parallel" "$repos" "gh_clone_or_pull_repo" "$gh" "$org" "$dir"
+    run_parallel "0" "$parallel" "$repos" "p6_github_clone_or_pull_repo" "$gh" "$org" "$dir"
 }
 
-gh_api_user_repos_clone() {
+p6_github_api_user_repos_clone() {
     local gh="$1"
     local gh_api="$2"
     local user="$3"
     local dir="$4"
     local auth="$5"
 
-    local repos=$(gh_api_user_repos_list  "$gh_api" "$user" "$auth")
+    local repos=$(p6_github_api_user_repos_list  "$gh_api" "$user" "$auth")
 
-    run_parallel "0" "8" "$repos" "gh_clone_or_pull_repo" "$gh" "$user" "$dir"
+    run_parallel "0" "8" "$repos" "p6_github_clone_or_pull_repo" "$gh" "$user" "$dir"
 }
 
-gh_api_repo_clone_or_pull() {
+p6_github_api_repo_clone_or_pull() {
     local gh="$1"
     local org="$2"
     local dir="$3"
