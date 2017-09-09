@@ -19,8 +19,8 @@ p6_github_thing_parse() {
 
 p6_github_repo_clone() {
     local uri="$1"
-    local ver="$2"
-    local repo="$3"
+    local repo="$2"
+    local ver="$3"
 
     local safe_repo=$(echo $repo | sed -e 's,/,_,g')
 
@@ -28,11 +28,11 @@ p6_github_repo_clone() {
 
     local dir=$(mktemp -d -t $prefix)
     (
-        cd ${dir}
-        git clone -q ${uri} .
-        if [ -n "${ver}" ]; then
-            git checkout -q ${ver}
-        fi
+	p6_dir_cd "$dir"
+	p6_git_clone "-q" "$uri" "."
+	if [ -n "${ver}" ]; then
+	    p6_git_checkout "-q" "$ver"
+	fi
     )
 
     echo ${dir}
@@ -50,13 +50,13 @@ p6_github_repo_file_commit() {
     p6_github_thing_parse "${repo}"
     local clone_dir=$(git_repo_clone "${GH}" "" "${repo}")
 
-    mkdir -p ${clone_dir}/${dir}
-    cp ${original} ${clone_dir}/${dir}/${file}
+    p6_mkdir "$clone_dir/$dir"
+    p6_file_copy "$original" "$clone_dir/$dir/$file"
     (
-	cd ${clone_dir}
-	git add ${dir}/${file}
-	git commit -m "${msg}"
-	git push
+	p6_git_cd "$dir"
+	p6_git_add "$dir/$file"
+	p6_git_commit "-m" "$msg"
+	p6_git_push "-u"
     ) > /dev/null
-    rm -rf ${clone_dir}
+    p6_dir_rmrf "$clone_dir"
 }
