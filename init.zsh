@@ -1,6 +1,6 @@
 p6df::modules::p6github::version() { echo "0.0.1" }
 p6df::modules::p6github::deps()    { }
-p6df::modules::p6github::external() { }
+p6df::modules::p6github::external::brew() { }
 
 p6df::modules::p6github::init() {
 
