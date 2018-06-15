@@ -4,7 +4,7 @@ p6df::modules::p6github::external::brew() { }
 
 p6df::modules::p6github::init() {
 
-    local dir=$P6_DFZ_DATA_PARENT/p6m7g8/p6github
+    local dir=$P6_DFZ_DATA_DIR/p6m7g8/p6github
 
     local file
     for file in $dir/lib/*.sh; do
