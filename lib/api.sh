@@ -25,7 +25,7 @@ p6_github_api_paginate() {
     done
 
     cat $file
-    rm -f $dir
+    rm -f $file
 }
 
 p6_github_api_orgs_list() {
@@ -64,7 +64,7 @@ p6_github_api_org_repos_clone() {
 
     local repos=$(p6_github_api_org_repos_list "$gh_api" "$org" "$auth")
 
-    run_parallel "0" "$parallel" "$repos" "p6_github_clone_or_pull_repo" "$gh" "$org" "$dir"
+    p6_run_parallel "0" "$parallel" "$repos" "p6_github_api_repo_clone_or_pull" "$gh" "$org" "$dir"
 }
 
 p6_github_api_user_repos_clone() {
@@ -76,7 +76,7 @@ p6_github_api_user_repos_clone() {
 
     local repos=$(p6_github_api_user_repos_list  "$gh_api" "$user" "$auth")
 
-    run_parallel "0" "8" "$repos" "p6_github_clone_or_pull_repo" "$gh" "$user" "$dir"
+    p6_run_parallel "0" "8" "$repos" "p6_github_api_repo_clone_or_pull" "$gh" "$user" "$dir"
 }
 
 p6_github_api_repo_clone_or_pull() {
