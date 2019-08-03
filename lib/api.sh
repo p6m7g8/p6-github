@@ -29,11 +29,11 @@ p6_github_api_paginate() {
 }
 
 p6_github_api_orgs_list() {
-    local gh="$1"
+    local gh_api="$1"
     local pass="$2"
     local auth="$3"
 
-    p6_github_api_paginate "${gh}/organizations" "$auth" | awk '/login/{ print $2 }' | sed -e 's/[",]//g' | sort
+    p6_github_api_paginate "${gh_api}/organizations" "$auth" | awk '/login/{ print $2 }' | sed -e 's/[",]//g' | sort
 }
 
 p6_github_api_org_repos_list() {
@@ -63,7 +63,6 @@ p6_github_api_org_repos_clone() {
     local parallel="${6:-8}"
 
     local repos=$(p6_github_api_org_repos_list "$gh_api" "$org" "$auth")
-
     p6_run_parallel "0" "$parallel" "$repos" "p6_github_api_repo_clone_or_pull" "$gh" "$org" "$dir"
 }
 

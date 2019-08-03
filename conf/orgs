@@ -5,6 +5,10 @@ apache
 apple
 aws
 awslabs
+awsdocs
+aws-sample
+aws-quickstart
+aws-cloudformation
 azure
 boot2docker
 boto

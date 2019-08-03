@@ -21,3 +21,9 @@ p6_github_oauth_token_del() {
 
     curl -X DELETE -s -u ${user}:${pass} ${gh_api}/v3/authorizations/$id
 }
+
+p6_github_oauth_token_clear() {
+
+  unset GH_TOKEN
+  unset GH_TOKEN_ID
+}

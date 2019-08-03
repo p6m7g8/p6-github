@@ -17,6 +17,13 @@ p6_github_thing_parse() {
     fi
 }
 
+p6_github_thing_clear() {
+
+  unset GH
+  unset GH_REPO
+  unset GH_VER
+}
+
 p6_github_repo_clone() {
     local uri="$1"
     local repo="$2"
