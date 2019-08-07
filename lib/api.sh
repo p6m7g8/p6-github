@@ -6,6 +6,7 @@ p6_github_api_paginate() {
     local file=${dir}/output.txt
 
     rm -f $file
+
     curl -i -s $(echo $auth) "$url" >> $file
 
     local next_url
@@ -20,7 +21,7 @@ p6_github_api_paginate() {
 	if [ $prev -gt $num ]; then
 	    break
 	fi
-
+        
 	curl -i -s $(echo $auth) $next_url >> $file
     done
 
@@ -50,7 +51,7 @@ p6_github_api_user_repos_list() {
     local user="$2"
     local auth="$3"
 
-    local repos=$(p6_github_api_paginate "${gh_api}/user/repos?type=owner" "$auth")
+    local repos=$(p6_github_api_paginate "${gh_api}/users/${user}/repos?type=owner" "$auth")
     echo $repos | _p6_github_repos_extract "$user"
 }
 
@@ -72,6 +73,7 @@ p6_github_api_user_repos_clone() {
     local user="$3"
     local dir="$4"
     local auth="$5"
+    local parallel="${6:-8}"
 
     local repos=$(p6_github_api_user_repos_list  "$gh_api" "$user" "$auth")
 
