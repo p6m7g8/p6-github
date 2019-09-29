@@ -46,13 +46,13 @@ p6_github_repo_clone() {
 }
 
 p6_github_repo_file_commit() {
-    [ -z "${TEST_MODE}" ] || return
-
     local repo="$1"
     local original="$2"
     local dir="$3"
     local file="$4"
     local msg="$5"
+
+    [ -z "${TEST_MODE}" ] || return
 
     p6_github_thing_parse "${repo}"
     local clone_dir=$(git_repo_clone "${GH}" "" "${repo}")
