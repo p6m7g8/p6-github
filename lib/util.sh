@@ -1,3 +1,14 @@
+######################################################################
+#<
+#
+# Function:
+#	p6_github_thing_parse(thing)
+#
+#  Args:
+#	thing - 
+#
+#>
+######################################################################
 p6_github_thing_parse() {
     local thing="$1"
 
@@ -17,6 +28,14 @@ p6_github_thing_parse() {
     fi
 }
 
+######################################################################
+#<
+#
+# Function:
+#	p6_github_thing_clear()
+#
+#>
+######################################################################
 p6_github_thing_clear() {
 
   unset GH
@@ -24,6 +43,19 @@ p6_github_thing_clear() {
   unset GH_VER
 }
 
+######################################################################
+#<
+#
+# Function:
+#	p6_github_repo_clone(uri, repo, ver)
+#
+#  Args:
+#	uri - 
+#	repo - 
+#	ver - 
+#
+#>
+######################################################################
 p6_github_repo_clone() {
     local uri="$1"
     local repo="$2"
@@ -45,6 +77,21 @@ p6_github_repo_clone() {
     echo ${dir}
 }
 
+######################################################################
+#<
+#
+# Function:
+#	p6_github_repo_file_commit(repo, original, dir, file, msg)
+#
+#  Args:
+#	repo - 
+#	original - 
+#	dir - 
+#	file - 
+#	msg - 
+#
+#>
+######################################################################
 p6_github_repo_file_commit() {
     local repo="$1"
     local original="$2"
