@@ -25,7 +25,7 @@ p6_github_api_paginate() {
     local prev=-1
     local num=0
     while [ : ]; do
-	next_url="$(grep ^Link $file | tail -1 | awk '{ print $2 }'  |sed -e 's,[><;],,g')"
+	next_url="$(grep ^link $file | tail -1 | awk '{ print $2 }'  |sed -e 's,[><;],,g')"
 	prev=$num
 	num=$(echo $next_url | sed -e 's,.*\=,,')
 	[ -z "$num" ] && num=-2
