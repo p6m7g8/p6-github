@@ -1,8 +1,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_oauth_token_get(gh_api, user, pass, note)
+# Function: p6_github_oauth_token_get(gh_api, user, pass, note)
 #
 #  Args:
 #	gh_api - 
@@ -30,8 +29,7 @@ p6_github_oauth_token_get() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_oauth_token_del(gh_api, user, pass, id)
+# Function: p6_github_oauth_token_del(gh_api, user, pass, id)
 #
 #  Args:
 #	gh_api - 
@@ -53,8 +51,7 @@ p6_github_oauth_token_del() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_oauth_token_clear()
+# Function: p6_github_oauth_token_clear()
 #
 #>
 ######################################################################
