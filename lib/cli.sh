@@ -1,3 +1,13 @@
+######################################################################
+#<
+#
+# Function: p6_github_cli_submit(msg)
+#
+#  Args:
+#	msg - 
+#
+#>
+######################################################################
 p6_github_cli_submit() {
   local msg="$1"
 
@@ -8,11 +18,10 @@ p6_github_cli_submit() {
     git checkout -b $myb
     git add .
     git commit -m "$1"
-    gh pr create -a $USER -f
+    gh pr create -a pgollucci -f
     git checkout master
     git branch -D $myb
   )
 
   p6_return_void
 }
-

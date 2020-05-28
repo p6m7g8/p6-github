@@ -1,8 +1,7 @@
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_thing_parse(thing)
+# Function: p6_github_thing_parse(thing)
 #
 #  Args:
 #	thing - 
@@ -31,8 +30,7 @@ p6_github_thing_parse() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_thing_clear()
+# Function: p6_github_thing_clear()
 #
 #>
 ######################################################################
@@ -46,8 +44,7 @@ p6_github_thing_clear() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_repo_clone(uri, repo, ver)
+# Function: p6_github_repo_clone(uri, repo, ver)
 #
 #  Args:
 #	uri - 
@@ -80,8 +77,7 @@ p6_github_repo_clone() {
 ######################################################################
 #<
 #
-# Function:
-#	p6_github_repo_file_commit(repo, original, dir, file, msg)
+# Function: p6_github_repo_file_commit(repo, original, dir, file, msg)
 #
 #  Args:
 #	repo - 
