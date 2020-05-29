@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/p6m7g8/p6github/compare/v1.0.1...v1.0.2) (2020-05-29)
+
+
+### Features
+
+* **api:** removes unused and insecure pass arg ([#7](https://github.com/p6m7g8/p6github/issues/7)) ([46eab98](https://github.com/p6m7g8/p6github/commit/46eab98f2c33bf7421f8f3aa595bb22b8e67aac5))
+
 ### 1.0.1 (2020-05-29)
 
 
