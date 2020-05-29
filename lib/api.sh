@@ -43,19 +43,17 @@ p6_github_api_paginate() {
 ######################################################################
 #<
 #
-# Function: p6_github_api_orgs_list(gh_api, pass, auth)
+# Function: p6_github_api_orgs_list(gh_api, auth)
 #
 #  Args:
 #	gh_api - 
-#	pass - 
 #	auth - 
 #
 #>
 ######################################################################
 p6_github_api_orgs_list() {
     local gh_api="$1"
-    local pass="$2"
-    local auth="$3"
+    local auth="$2"
 
     p6_github_api_paginate "${gh_api}/organizations" "$auth" | awk '/login/{ print $2 }' | sed -e 's/[",]//g' | sort
 }

@@ -1,7 +1,7 @@
 ### api.sh:
 - p6_github_api_org_repos_clone(gh, gh_api, org, dir, auth, [parallel=8])
 - p6_github_api_org_repos_list(gh_api, org, auth)
-- p6_github_api_orgs_list(gh_api, pass, auth)
+- p6_github_api_orgs_list(gh_api, auth)
 - p6_github_api_paginate(url, auth)
 - p6_github_api_repo_clone_or_pull(gh, org, dir, repo)
 - p6_github_api_user_repos_clone(gh, gh_api, user, dir, auth, [parallel=8])
