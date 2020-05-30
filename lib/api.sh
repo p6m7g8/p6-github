@@ -177,11 +177,11 @@ p6_github_api_repo_clone_or_pull() {
     [ -d $dir/$org/$repo ] && return
 
     if [ -d $dir/$org/$repo ]; then
-	echo "=====> $repo [pull]"
-	(cd $dir/$org/$repo ; git pull -q)
+    	p6_header1 "$repo [pull]"
+	    (p6_dir_cd "$dir/$org/$repo" ; p6_git_pull -q)
     else
-	echo "=====> $repo [clone]"
-	mkdir -p $dir/$org/$repo
-	(cd $dir/$org ; git clone -q --depth 1 ${gh}/${org}/${repo}.git > /dev/null)
+	    p6_header1 "$repo [clone]"
+	    p6_dir_mk "$dir/$org/$repo"
+	    (p6_dir_cd "$dir/$org" ; gh repo clone ${gh}/${org}/${repo}.git -- -q --depth 1  > /dev/null)
     fi
 }
