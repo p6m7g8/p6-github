@@ -65,9 +65,9 @@ p6_github_repo_clone() {
     local dir=$(mktemp -d -t $prefix)
     (
 	p6_dir_cd "$dir"
-	p6_git_clone "-q" "$uri" "."
+	p6_git_cmd clone -q "$uri" "."
 	if [ -n "${ver}" ]; then
-	    p6_git_checkout "-q" "$ver"
+	    p6_git_cmd checkout -q "$ver"
 	fi
     )
 
@@ -103,10 +103,10 @@ p6_github_repo_file_commit() {
     p6_mkdir "$clone_dir/$dir"
     p6_file_copy "$original" "$clone_dir/$dir/$file"
     (
-	p6_git_cd "$dir"
-	p6_git_add "$dir/$file"
-	p6_git_commit "-m" "$msg"
-	p6_git_push "-u"
+	p6_dir_cd "$dir"
+	p6_git_cmd add "$dir/$file"
+	p6_git_cmd commit -m "$msg"
+	p6_git_cmd push -u
     ) > /dev/null
     p6_dir_rmrf "$clone_dir"
 }

@@ -178,7 +178,7 @@ p6_github_api_repo_clone_or_pull() {
 
     if [ -d $dir/$org/$repo ]; then
     	p6_h1 "$repo [pull]"
-	    (p6_dir_cd "$dir/$org/$repo" ; p6_git_pull -q)
+	    (p6_dir_cd "$dir/$org/$repo" ; p6_git_cmd pull -q)
     else
 	    p6_h1 "$repo [clone]"
 	    p6_dir_mk "$dir/$org/$repo"
