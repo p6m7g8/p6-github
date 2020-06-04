@@ -8,7 +8,9 @@
 - p6_github_api_user_repos_list(gh_api, user, auth)
 
 ### cli.sh:
+- code rc = p6_github_gh_cmd(cmd, ...)
 - p6_github_cli_submit(msg)
+- p6_github_gh_pr_list()
 
 ### oauth.sh:
 - p6_github_oauth_token_clear()
