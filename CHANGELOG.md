@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/p6m7g8/p6github/compare/v1.0.1...v1.0.2) (2020-06-04)
+
+
+### Features
+
+* **api:** removes unused and insecure pass arg ([#7](https://github.com/p6m7g8/p6github/issues/7)) ([46eab98](https://github.com/p6m7g8/p6github/commit/46eab98f2c33bf7421f8f3aa595bb22b8e67aac5))
+* **cli:** +p6_github_gh_pr_list ([#12](https://github.com/p6m7g8/p6github/issues/12)) ([6f67731](https://github.com/p6m7g8/p6github/commit/6f67731de9d15eda6ef0a8b6af7541c9c7e11be6))
+* **util:** uses p6_git_cmd() ([#11](https://github.com/p6m7g8/p6github/issues/11)) ([7706288](https://github.com/p6m7g8/p6github/commit/77062889d749e4c1389d0e76b5d26937ff2ad7cb))
+
+
+* **api:** p6ify" ([#9](https://github.com/p6m7g8/p6github/issues/9)) ([6f42a26](https://github.com/p6m7g8/p6github/commit/6f42a26f2387293736665728af34cc16a77cefec))
+* **release:** 1.0.2 ([0b4ae53](https://github.com/p6m7g8/p6github/commit/0b4ae530c70bcc8efffa57488bdb2a9b2c1138f8))
+
 ### [1.0.2](https://github.com/p6m7g8/p6github/compare/v1.0.1...v1.0.2) (2020-05-29)
 
 
