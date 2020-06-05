@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/p6m7g8/p6github/compare/v1.0.2...v1.0.3) (2020-06-05)
+
+
+### Features
+
+* **cli:** +p6_github_gh_pr_list ([#12](https://github.com/p6m7g8/p6github/issues/12)) ([6f67731](https://github.com/p6m7g8/p6github/commit/6f67731de9d15eda6ef0a8b6af7541c9c7e11be6))
+* **orgs:** adds ALL AWS github OSS orgs ([#14](https://github.com/p6m7g8/p6github/issues/14)) ([22a6855](https://github.com/p6m7g8/p6github/commit/22a6855981a1050b642d2213c33602e26b11fba3))
+* **util:** uses p6_git_cmd() ([#11](https://github.com/p6m7g8/p6github/issues/11)) ([7706288](https://github.com/p6m7g8/p6github/commit/77062889d749e4c1389d0e76b5d26937ff2ad7cb))
+
+
+* **api:** p6ify" ([#9](https://github.com/p6m7g8/p6github/issues/9)) ([6f42a26](https://github.com/p6m7g8/p6github/commit/6f42a26f2387293736665728af34cc16a77cefec))
+* **release:** 1.0.2 ([404ef18](https://github.com/p6m7g8/p6github/commit/404ef187c00053fcf76ef56959d8cba523bc5adf))
+
 ### [1.0.2](https://github.com/p6m7g8/p6github/compare/v1.0.1...v1.0.2) (2020-06-04)
 
 
