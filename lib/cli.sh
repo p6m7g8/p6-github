@@ -45,7 +45,7 @@ p6_github_cli_submit() {
 
   (
     git checkout -b $myb
-    git commit -m "$msg"
+    git commit -v
     gh pr create -a pgollucci -f
     git checkout master
     git branch -D $myb
