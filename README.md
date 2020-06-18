@@ -1,3 +1,9 @@
+### init.zsh:
+- p6df::modules::p6github::deps()
+- p6df::modules::p6github::external::brew()
+- p6df::modules::p6github::init()
+- p6df::modules::p6github::version()
+
 ### api.sh:
 - p6_github_api_org_repos_clone(gh, gh_api, org, dir, auth, [parallel=8])
 - p6_github_api_org_repos_list(gh_api, org, auth)
