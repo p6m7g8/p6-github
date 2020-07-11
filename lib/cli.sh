@@ -18,7 +18,7 @@ p6_github_gh_cmd() {
 
     local log_type
     case $cmd in
-	*) log_type=p6_run_write_cmd ;;
+      *) log_type=p6_run_write_cmd ;;
     esac
 
     p6_run_code "$log_type gh $cmd $@"
@@ -38,9 +38,9 @@ p6_github_gh_cmd() {
 #>
 ######################################################################
 p6_github_cli_submit() {
-  local msg="$1"
 
-  local token=$(p6_token_random "4")
+  local token
+  token=$(p6_token_random "4")
   local myb="branch-$token"
 
   (
