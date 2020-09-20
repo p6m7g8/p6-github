@@ -1,12 +1,10 @@
-########################################################################
+######################################################################
 #<
 #
-# Function: p6_github_api_org_repos_list(gh_api, org, auth)
+# Function: p6_github_api_org_repos_list(org)
 #
 #  Args:
-#	gh_api - 
 #	org - 
-#	auth - 
 #
 #>
 ######################################################################
@@ -19,12 +17,10 @@ p6_github_api_org_repos_list() {
 ######################################################################
 #<
 #
-# Function: p6_github_api_user_repos_list(gh_api, user, auth)
+# Function: p6_github_api_user_repos_list(user)
 #
 #  Args:
-#	gh_api - 
 #	user - 
-#	auth - 
 #
 #>
 ######################################################################
@@ -37,14 +33,11 @@ p6_github_api_user_repos_list() {
 ######################################################################
 #<
 #
-# Function: p6_github_api_org_repos_clone(gh, gh_api, org, dir, auth, [parallel=8])
+# Function: p6_github_api_org_repos_clone(org, dir, [parallel=8])
 #
 #  Args:
-#	gh - 
-#	gh_api - 
 #	org - 
 #	dir - 
-#	auth - 
 #	OPTIONAL parallel -  [8]
 #
 #>
@@ -62,14 +55,11 @@ p6_github_api_org_repos_clone() {
 ######################################################################
 #<
 #
-# Function: p6_github_api_user_repos_clone(gh, gh_api, user, dir, auth, [parallel=8])
+# Function: p6_github_api_user_repos_clone(user, dir, [parallel=8])
 #
 #  Args:
-#	gh - 
-#	gh_api - 
 #	user - 
 #	dir - 
-#	auth - 
 #	OPTIONAL parallel -  [8]
 #
 #>
@@ -88,11 +78,10 @@ p6_github_api_user_repos_clone() {
 ######################################################################
 #<
 #
-# Function: p6_github_api_repo_clone_or_pull(gh, org, dir, repo)
+# Function: p6_github_api_repo_clone_or_pull(ou, dir, repo)
 #
 #  Args:
-#	gh - 
-#	org - 
+#	ou - 
 #	dir - 
 #	repo - 
 #
