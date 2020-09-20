@@ -13,7 +13,7 @@
 p6_github_api_org_repos_list() {
     local org="$1"
 
-    gh api orgs/"$org"/repos --paginate | jq -M -r "[.[] | .clone_url ]" | grep http | sed -e 's,.*/,,' -e 's,\.git\",,' -e 's,",,g' -e 's/,//' | sort
+    gh api orgs/"$org"/repos --paginate | jq -M -r "[.[] | .clone_url ]" | grep http | sed -e 's,.*/,,' -e 's,",,g' -e 's/,//' -e 's,\.git$,,' | sort
 }
 
 ######################################################################
