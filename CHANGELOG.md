@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/p6m7g8/p6github/compare/v1.0.3...v1.0.4) (2020-09-20)
+
+
+### Features
+
+* **gh:** api -> gh api ([#17](https://github.com/p6m7g8/p6github/issues/17)) ([2b3d076](https://github.com/p6m7g8/p6github/commit/2b3d0764d918bca213149d9c6ebc66cd63be3a25))
+
+
+### Bug Fixes
+
+* **api/p6_github_api_org_repos_list:** stop unintentionally excluding `.github` ([#19](https://github.com/p6m7g8/p6github/issues/19)) ([002e334](https://github.com/p6m7g8/p6github/commit/002e334ca4ca79267e18019b403cdbffca162435))
+* **cli:** fix commit to prompt for a message ([#15](https://github.com/p6m7g8/p6github/issues/15)) ([21c10bf](https://github.com/p6m7g8/p6github/commit/21c10bfffe9dc1b1c38bd34d36989a07ee6aa2f9))
+* **cli:** removes git add ([2e86193](https://github.com/p6m7g8/p6github/commit/2e861935b7a2256682f3711f2e94aa5ab5c62b58))
+* **orgs:** reduce active repos to those I use the most right now for space reasons ([#18](https://github.com/p6m7g8/p6github/issues/18)) ([6d1d2dc](https://github.com/p6m7g8/p6github/commit/6d1d2dc02448a077f9812ab49a1f367f8a6e3c02))
+
+
+* **doc:** regens ([#16](https://github.com/p6m7g8/p6github/issues/16)) ([1afd7ae](https://github.com/p6m7g8/p6github/commit/1afd7aeef5f99823a31b5cd69e983be9fcfb6b2a))
+* **doc:** regens docs ([#20](https://github.com/p6m7g8/p6github/issues/20)) ([c1e250a](https://github.com/p6m7g8/p6github/commit/c1e250a37291356fbc64ff62c730d91641bc4d54))
+
 ### [1.0.3](https://github.com/p6m7g8/p6github/compare/v1.0.2...v1.0.3) (2020-06-05)
 
 
