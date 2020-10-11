@@ -2,7 +2,6 @@
 - p6df::modules::p6github::deps()
 - p6df::modules::p6github::external::brew()
 - p6df::modules::p6github::init()
-- p6df::modules::p6github::version()
 
 ### api.sh:
 - p6_github_api_org_repos_clone(org, dir, [parallel=8])
@@ -13,7 +12,7 @@
 
 ### cli.sh:
 - code rc = p6_github_gh_cmd(cmd, ...)
-- p6_github_cli_submit()
+- p6_github_cli_submit(msg)
 - p6_github_gh_pr_list()
 
 ### oauth.sh:

@@ -30,19 +30,27 @@ p6_github_gh_cmd() {
 ######################################################################
 #<
 #
-# Function: p6_github_cli_submit()
+# Function: p6_github_cli_submit(msg)
+#
+#  Args:
+#	msg - 
 #
 #>
 ######################################################################
 p6_github_cli_submit() {
+  local msg="$1"
 
   local token
   token=$(p6_token_random "4")
   local myb="branch-$token"
 
   (
-    git checkout -b $myb
-    git commit -v
+    git checkout -b $my
+    if p6_string_blank "$msg"; then
+      git commit -v
+    else
+      git commit -m "$msg"
+    fi
     gh pr create -a pgollucci -f
     git checkout master
     git branch -D $myb
