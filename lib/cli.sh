@@ -45,7 +45,7 @@ p6_github_cli_submit() {
   local myb="branch-$token"
 
   (
-    git checkout -b $my
+    git checkout -b $myb
     if p6_string_blank "$msg"; then
       git commit -v
     else
