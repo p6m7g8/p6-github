@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/p6m7g8/p6github/compare/v1.0.4...v2.0.0) (2020-10-11)
+
+
+### Bug Fixes
+
+* **deps:** depends on `p6m7g8/p6common` ([#21](https://github.com/p6m7g8/p6github/issues/21)) ([58e0281](https://github.com/p6m7g8/p6github/commit/58e0281ec208968a94f60f271db576e88bd521ec))
+
 ### [1.0.4](https://github.com/p6m7g8/p6github/compare/v1.0.3...v1.0.4) (2020-09-20)
 
 
