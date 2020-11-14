@@ -4,7 +4,7 @@
 # Function: p6_github_thing_parse(thing)
 #
 #  Args:
-#	thing
+#	thing -
 #
 #>
 ######################################################################

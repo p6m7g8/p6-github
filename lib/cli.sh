@@ -5,7 +5,7 @@
 # Function: code rc = p6_github_gh_cmd(cmd, ...)
 #
 #  Args:
-#	cmd
+#	cmd -
 #	... - 
 #
 #  Returns:
@@ -34,7 +34,7 @@ p6_github_gh_cmd() {
 # Function: p6_github_cli_submit(msg)
 #
 #  Args:
-#	msg
+#	msg -
 #
 #>
 ######################################################################
@@ -66,8 +66,8 @@ p6_github_cli_submit() {
 # Function: p6_github_cli_branch(branch, msg)
 #
 #  Args:
-#	branch
-#	msg
+#	branch -
+#	msg -
 #
 #>
 ######################################################################
@@ -106,7 +106,7 @@ p6_github_gh_pr_list() {
 # Function: p6_github_gh_pr_checkout(pr, ...)
 #
 #  Args:
-#	pr
+#	pr -
 #	... - 
 #
 #>
@@ -124,7 +124,7 @@ p6_github_gh_pr_checkout() {
 # Function: p6_github_gh_pr_view(pr, ...)
 #
 #  Args:
-#	pr
+#	pr -
 #	... - 
 #
 #>
