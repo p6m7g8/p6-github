@@ -4,7 +4,7 @@
 # Function: p6_github_api_org_repos_list(org)
 #
 #  Args:
-#	org
+#	org -
 #
 #>
 ######################################################################
@@ -20,7 +20,7 @@ p6_github_api_org_repos_list() {
 # Function: p6_github_api_user_repos_list(user)
 #
 #  Args:
-#	user
+#	user -
 #
 #>
 ######################################################################
@@ -36,9 +36,9 @@ p6_github_api_user_repos_list() {
 # Function: p6_github_api_org_repos_clone(org, dir, [parallel=8])
 #
 #  Args:
-#	org
-#	dir
-#	OPTIONAL parallel [8]
+#	org -
+#	dir -
+#	OPTIONAL parallel - [8]
 #
 #>
 ######################################################################
@@ -58,9 +58,9 @@ p6_github_api_org_repos_clone() {
 # Function: p6_github_api_user_repos_clone(user, dir, [parallel=8])
 #
 #  Args:
-#	user
-#	dir
-#	OPTIONAL parallel [8]
+#	user -
+#	dir -
+#	OPTIONAL parallel - [8]
 #
 #>
 ######################################################################
@@ -81,9 +81,9 @@ p6_github_api_user_repos_clone() {
 # Function: p6_github_api_repo_clone_or_pull(ou, dir, repo)
 #
 #  Args:
-#	ou
-#	dir
-#	repo
+#	ou -
+#	dir -
+#	repo -
 #
 #>
 ######################################################################
