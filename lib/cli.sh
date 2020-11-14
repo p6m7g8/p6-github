@@ -1,10 +1,11 @@
+# shellcheck shell=sh
 ######################################################################
 #<
 #
 # Function: code rc = p6_github_gh_cmd(cmd, ...)
 #
 #  Args:
-#	cmd - 
+#	cmd
 #	... - 
 #
 #  Returns:
@@ -13,18 +14,18 @@
 #>
 ######################################################################
 p6_github_gh_cmd() {
-    local cmd="$1"
-    shift 1
+  local cmd="$1"
+  shift 1
 
-    local log_type
-    case $cmd in
-      *) log_type=p6_run_write_cmd ;;
-    esac
+  local log_type
+  case $cmd in
+  *) log_type=p6_run_write_cmd ;;
+  esac
 
-    p6_run_code "$log_type gh $cmd $@"
-    local rc=$?
+  p6_run_code "$log_type gh $cmd $*"
+  local rc=$?
 
-    p6_return_code_as_code "$rc";
+  p6_return_code_as_code "$rc"
 }
 
 ######################################################################
@@ -33,7 +34,7 @@ p6_github_gh_cmd() {
 # Function: p6_github_cli_submit(msg)
 #
 #  Args:
-#	msg - 
+#	msg
 #
 #>
 ######################################################################
@@ -45,7 +46,7 @@ p6_github_cli_submit() {
   local myb="branch-$token"
 
   (
-    git checkout -b $myb
+    git checkout -b "$myb"
     if p6_string_blank "$msg"; then
       git commit -v
     else
@@ -53,7 +54,35 @@ p6_github_cli_submit() {
     fi
     gh pr create -a pgollucci -f
     git checkout master
-    git branch -D $myb
+    git branch -D "$myb"
+  )
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_cli_branch(branch, msg)
+#
+#  Args:
+#	branch
+#	msg
+#
+#>
+######################################################################
+p6_github_cli_branch() {
+  local branch="$1"
+  local msg="$2"
+
+  (
+    git checkout -b "$branch"
+    if p6_string_blank "$msg"; then
+      git commit -v
+    else
+      git commit -m "$msg"
+    fi
+    git push -u
   )
 
   p6_return_void
@@ -68,5 +97,41 @@ p6_github_cli_submit() {
 ######################################################################
 p6_github_gh_pr_list() {
 
-    p6_github_gh_cmd pr list
+  p6_github_gh_cmd pr list
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_pr_checkout(pr, ...)
+#
+#  Args:
+#	pr
+#	... - 
+#
+#>
+######################################################################
+p6_github_gh_pr_checkout() {
+  local pr="$1"
+  shift 1
+
+  p6_github_gh_cmd pr checkout "$pr" "$@"
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_pr_view(pr, ...)
+#
+#  Args:
+#	pr
+#	... - 
+#
+#>
+######################################################################
+p6_github_gh_pr_view() {
+  local pr="$1"
+  shift 1
+
+  p6_github_gh_cmd pr view -w "$pr" "$@"
 }

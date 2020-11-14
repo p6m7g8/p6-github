@@ -4,10 +4,10 @@
 # Function: p6_github_oauth_token_get(gh_api, user, pass, note)
 #
 #  Args:
-#	gh_api - 
-#	user - 
-#	pass - 
-#	note - 
+#	gh_api
+#	user
+#	pass
+#	note
 #
 #>
 ######################################################################
@@ -32,10 +32,10 @@ p6_github_oauth_token_get() {
 # Function: p6_github_oauth_token_del(gh_api, user, pass, id)
 #
 #  Args:
-#	gh_api - 
-#	user - 
-#	pass - 
-#	id - 
+#	gh_api
+#	user
+#	pass
+#	id
 #
 #>
 ######################################################################
