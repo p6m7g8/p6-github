@@ -57,11 +57,15 @@
 - code rc = p6_github_gh_cmd(cmd, ...)
 - p6_github_cli_branch(branch, msg)
 - p6_github_cli_submit(msg)
+- p6_github_gh_action_log(action_id)
+- p6_github_gh_action_view()
+- p6_github_gh_actions_list()
 - p6_github_gh_pr_checkout(pr, ...)
 - p6_github_gh_pr_comment(pr, ...)
 - p6_github_gh_pr_list()
 - p6_github_gh_pr_merge(pr, ...)
 - p6_github_gh_pr_view(pr, ...)
+- str action_id = p6_github_gh_actions_last()
 
 #### oauth.sh:
 

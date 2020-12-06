@@ -1,4 +1,4 @@
-# shellcheck shell=sh
+# shellcheck shell=bash
 ######################################################################
 #<
 #
@@ -6,7 +6,7 @@
 #
 #  Args:
 #	cmd -
-#	... - 
+#	... -
 #
 #  Returns:
 #	code - rc
@@ -107,7 +107,7 @@ p6_github_gh_pr_list() {
 #
 #  Args:
 #	pr -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -125,7 +125,7 @@ p6_github_gh_pr_checkout() {
 #
 #  Args:
 #	pr -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -143,7 +143,7 @@ p6_github_gh_pr_view() {
 #
 #  Args:
 #	pr -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -151,7 +151,7 @@ p6_github_gh_pr_comment() {
   local pr="$1"
   shift 1
 
-  p6_github_gh_cmd pr review $pr --comment -b "$@"
+  p6_github_gh_cmd pr review "$pr" --comment -b "$@"
 }
 
 ######################################################################
@@ -161,7 +161,7 @@ p6_github_gh_pr_comment() {
 #
 #  Args:
 #	pr -
-#	... - 
+#	... -
 #
 #>
 ######################################################################
@@ -169,5 +169,88 @@ p6_github_gh_pr_merge() {
   local pr="$1"
   shift 1
 
-  p6_github_gh_cmd  r merge -d -s $pr
+  p6_github_gh_cmd pr merge -d -s "$pr"
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_actions_list()
+#
+#>
+######################################################################
+p6_github_gh_actions_list() {
+
+  gh api /repos/:owner/:repo/actions/runs | jq -M -r ".workflow_runs[] | .id"
+}
+
+######################################################################
+#<
+#
+# Function: str action_id = p6_github_gh_actions_last()
+#
+#  Returns:
+#	str - action_id
+#
+#>
+######################################################################
+p6_github_gh_actions_last() {
+
+  local action_id
+  action_id=$(p6_github_gh_actions_list | head -1)
+
+  p6_return_str "$action_id"
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_action_log(action_id)
+#
+#  Args:
+#	action_id -
+#
+#>
+######################################################################
+p6_github_gh_action_log() {
+  local action_id="$1"
+
+  gh api /repos/:owner/:repo/actions/runs/"$action_id"/logs
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_action_view()
+#
+#>
+######################################################################
+p6_github_gh_action_view() {
+
+  local action_id
+  action_id=$(p6_github_gh_actions_last)
+
+  local dir=
+  dir=$(p6_transient_create "p6_ghav")
+  local zip=
+  zip="$dir/logs.zip"
+
+  p6_github_gh_action_log "$action_id" >"$zip"
+
+  (
+    cd "$dir" || true
+    unzip "$zip"
+    p6_file_rmf "$zip"
+
+    local file
+    for file in **/*; do
+      p6_color_say "blue" "white" "----------------------------------------------"
+      p6_color_say "blue" "white" "$file"
+      p6_color_say "blue" "white" "----------------------------------------------"
+      p6_file_display "$file"
+      p6_msg
+    done
+  )
+
+  p6_transient_delete "$dir"
 }
