@@ -60,6 +60,7 @@
 - p6_github_gh_pr_checkout(pr, ...)
 - p6_github_gh_pr_comment(pr, ...)
 - p6_github_gh_pr_list()
+- p6_github_gh_pr_merge(pr, ...)
 - p6_github_gh_pr_view(pr, ...)
 
 #### oauth.sh:

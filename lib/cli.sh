@@ -151,5 +151,23 @@ p6_github_gh_pr_comment() {
   local pr="$1"
   shift 1
 
-  gh pr review $pr --comment -b "$@"
+  p6_github_gh_cmd pr review $pr --comment -b "$@"
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_pr_merge(pr, ...)
+#
+#  Args:
+#	pr -
+#	... - 
+#
+#>
+######################################################################
+p6_github_gh_pr_merge() {
+  local pr="$1"
+  shift 1
+
+  p6_github_gh_cmd  r merge -d -s $pr
 }
