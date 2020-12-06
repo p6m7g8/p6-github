@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/p6m7g8/p6github/compare/v2.1.0...v2.1.1) (2020-12-06)
+
+
+### Features
+
+* **api:** +`p6_github_gh_action_log`, +`p6_github_gh_action_view`, +`p6_github_gh_actions_list`, +`p6_github_gh_actions_last` ([#34](https://github.com/p6m7g8/p6github/issues/34)) ([eae76b1](https://github.com/p6m7g8/p6github/commit/eae76b15fb6c160a36defa7dfe442912af13d546))
+
 ## [2.1.0](https://github.com/p6m7g8/p6github/compare/v2.0.0...v2.1.0) (2020-12-06)
 
 
