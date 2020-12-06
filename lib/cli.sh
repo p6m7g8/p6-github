@@ -135,3 +135,21 @@ p6_github_gh_pr_view() {
 
   p6_github_gh_cmd pr view -w "$pr" "$@"
 }
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_pr_comment(pr, ...)
+#
+#  Args:
+#	pr -
+#	... - 
+#
+#>
+######################################################################
+p6_github_gh_pr_comment() {
+  local pr="$1"
+  shift 1
+
+  gh pr review $pr --comment -b "$@"
+}

@@ -58,6 +58,7 @@
 - p6_github_cli_branch(branch, msg)
 - p6_github_cli_submit(msg)
 - p6_github_gh_pr_checkout(pr, ...)
+- p6_github_gh_pr_comment(pr, ...)
 - p6_github_gh_pr_list()
 - p6_github_gh_pr_view(pr, ...)
 
