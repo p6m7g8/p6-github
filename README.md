@@ -41,33 +41,38 @@
 #### init.zsh:
 
 - p6df::modules::p6github::deps()
-- p6df::modules::p6github::external::brew()
 - p6df::modules::p6github::init()
+
+#### action.sh:
+
+- bool rc = p6_github_gh_action_status_stop_when_completed(_status)
+- p6_github_gh_action_view()
+- str _status = p6_github_gh_action_status(action_id)
+- str json = p6_github_gh_action_status_json(action_id)
+
+#### actions.sh:
+
+- str action_id = p6_github_gh_actions_last()
 
 #### api.sh:
 
-- p6_github_api_org_repos_clone(org, dir, [parallel=8])
-- p6_github_api_org_repos_list(org)
-- p6_github_api_repo_clone_or_pull(ou, dir, repo)
-- p6_github_api_user_repos_clone(user, dir, [parallel=8])
-- p6_github_api_user_repos_list(user)
+- str list = p6_github_api_actions_list([name=Build], [owner=:owner], [repo=:repo])
+- str list = p6_github_api_org_repos_list([org=:org])
+- str list = p6_github_api_user_repos_list([user=:user])
+- str log = p6_github_api_action_log(action_id, [owner=:owner], [repo=:repo])
+
+#### branch.sh:
+
+- p6_github_branch_submit(branch, msg)
 
 #### cli.sh:
 
 - code rc = p6_github_gh_cmd(cmd, ...)
-- p6_github_cli_branch(branch, msg)
-- p6_github_cli_submit(msg)
-- p6_github_gh_action_log(action_id)
-- p6_github_gh_action_status()
-- p6_github_gh_action_view()
-- p6_github_gh_actions_list()
 - p6_github_gh_pr_checkout(pr, ...)
 - p6_github_gh_pr_comment(pr, ...)
 - p6_github_gh_pr_list()
 - p6_github_gh_pr_merge(pr, ...)
 - p6_github_gh_pr_view(pr, ...)
-- str action_id = p6_github_gh_actions_last()
-- str json = p6_github_gh_action_status_json(action_id)
 
 #### oauth.sh:
 
@@ -75,10 +80,18 @@
 - p6_github_oauth_token_del(gh_api, user, pass, id)
 - p6_github_oauth_token_get(gh_api, user, pass, note)
 
+#### pr.sh:
+
+- p6_github_pr_create([user=${USER:-pgollucci])
+- p6_github_pr_submit(msg)
+
 #### util.sh:
 
-- p6_github_thing_clear()
-- p6_github_thing_parse(thing)
+- p6_github_util_org_repos_clone(org, dir, [parallel=8])
+- p6_github_util_repo_clone_or_pull(ou, dir, repo)
+- p6_github_util_thing_clear()
+- p6_github_util_thing_parse(thing)
+- p6_github_util_user_repos_clone(user, dir, [parallel=8])
 
 
 ## Author
