@@ -6,7 +6,7 @@
 #
 #  Args:
 #	cmd -
-#	... -
+#	... - 
 #
 #  Returns:
 #	code - rc
@@ -107,7 +107,7 @@ p6_github_gh_pr_list() {
 #
 #  Args:
 #	pr -
-#	... -
+#	... - 
 #
 #>
 ######################################################################
@@ -125,7 +125,7 @@ p6_github_gh_pr_checkout() {
 #
 #  Args:
 #	pr -
-#	... -
+#	... - 
 #
 #>
 ######################################################################
@@ -143,7 +143,7 @@ p6_github_gh_pr_view() {
 #
 #  Args:
 #	pr -
-#	... -
+#	... - 
 #
 #>
 ######################################################################
@@ -161,7 +161,7 @@ p6_github_gh_pr_comment() {
 #
 #  Args:
 #	pr -
-#	... -
+#	... - 
 #
 #>
 ######################################################################
@@ -181,7 +181,7 @@ p6_github_gh_pr_merge() {
 ######################################################################
 p6_github_gh_actions_list() {
 
-  gh api /repos/:owner/:repo/actions/runs | jq -M -r ".workflow_runs[] | .id"
+  p6_github_gh_cmd api /repos/:owner/:repo/actions/runs | jq -M -r ".workflow_runs[] | .id"
 }
 
 ######################################################################
@@ -215,7 +215,7 @@ p6_github_gh_actions_last() {
 p6_github_gh_action_log() {
   local action_id="$1"
 
-  gh api /repos/:owner/:repo/actions/runs/"$action_id"/logs
+  p6_github_gh_cmd api /repos/:owner/:repo/actions/runs/"$action_id"/logs
 }
 
 ######################################################################
@@ -253,4 +253,42 @@ p6_github_gh_action_view() {
   )
 
   p6_transient_delete "$dir"
+}
+
+######################################################################
+#<
+#
+# Function: str json = p6_github_gh_action_status_json(action_id)
+#
+#  Args:
+#	action_id -
+#
+#  Returns:
+#	str - json
+#
+#>
+######################################################################
+p6_github_gh_action_status_json() {
+  local action_id="$1"
+
+  local json
+  json=$(p6_github_gh_cmd api /repos/:owner/:repo/actions/runs/"$action_id" |
+    jq -M -r "{name: .name, event: .event, status: .status, conclusion: .conclusion}")
+
+  p6_return_str "$json"
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_action_status()
+#
+#>
+######################################################################
+p6_github_gh_action_status() {
+
+  local action_id
+  action_id=$(p6_github_gh_actions_last)
+
+  p6_github_gh_action_status_json "$action_id"
 }
