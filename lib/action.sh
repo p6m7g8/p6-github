@@ -1,14 +1,39 @@
 ######################################################################
 #<
 #
-# Function: p6_github_gh_action_view()
+# Function: p6_github_gh_action_view(action_id)
+#
+#  Args:
+#	action_id -
 #
 #>
 ######################################################################
 p6_github_gh_action_view() {
+    local action_id="$1"
 
-    local action_id
-    action_id=$(p6_github_gh_actions_last)
+    if p6_string_blank "$action_id"; then
+      action_id=$(p6_github_gh_actions_last)
+    fi
+
+    if p6_string_blank "$action_id"; then
+        p6_return_void
+    else
+        p6_github_gh_action_view_do "$action_id"
+    fi
+}
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_action_view_do(action_id)
+#
+#  Args:
+#	action_id -
+#
+#>
+######################################################################
+p6_github_gh_action_view_do() {
+    local action_id="$1"
 
     p6_run_retry \
         p6_github_gh_action_status_stop_when_completed \

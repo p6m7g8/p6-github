@@ -17,12 +17,15 @@ p6_github_util_thing_parse() {
         GH_VER=
     else
         local org_proj=${thing%%%*}
+        # shellcheck disable=SC2034  # Unused variables left for readability
         GH_REPO=${org_proj}
+        # shellcheck disable=SC2034  # Unused variables left for readability
         GH="${GITHUB_URL}${org_proj}"
 
         if [[ ${thing} = *%* ]]; then
             GH_VER=${thing##*%}
         else
+            # shellcheck disable=SC2034  # Unused variables left for readability
             GH_VER=master
         fi
     fi

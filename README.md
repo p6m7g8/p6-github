@@ -46,7 +46,8 @@
 #### action.sh:
 
 - bool rc = p6_github_gh_action_status_stop_when_completed(_status)
-- p6_github_gh_action_view()
+- p6_github_gh_action_view(action_id)
+- p6_github_gh_action_view_do(action_id)
 - str _status = p6_github_gh_action_status(action_id)
 - str json = p6_github_gh_action_status_json(action_id)
 
