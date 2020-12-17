@@ -111,3 +111,19 @@ p6_github_gh_pr_merge() {
 
   p6_github_gh_cmd pr merge -d -s "$pr"
 }
+
+######################################################################
+#<
+#
+# Function: p6_github_gh_pr_create([user=${USER:-pgollucci])
+#
+#  Args:
+#	OPTIONAL user - [${USER:-pgollucci]
+#
+#>
+######################################################################
+p6_github_gh_pr_create() {
+  local user="${1:-${USER:-pgollucci}}"
+
+  p6_github_gh_cmd pr create -a "$user" -f
+}

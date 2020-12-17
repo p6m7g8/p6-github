@@ -1,14 +1,14 @@
 ######################################################################
 #<
 #
-# Function: p6_github_pr_submit(msg)
+# Function: p6_github_gh_pr_submit(msg)
 #
 #  Args:
 #	msg -
 #
 #>
 ######################################################################
-p6_github_pr_submit() {
+p6_github_gh_pr_submit() {
     local msg="$1"
 
     local token
@@ -21,25 +21,9 @@ p6_github_pr_submit() {
     else
         p6_git_p6_commit "$msg"
     fi
-    p6_github_pr_create "$USER"
+    p6_github_gh_pr_create "$USER"
     p6_git_p6_checkout "master" #XXX: main
     p6_git_p6_branch "-D" "$myb"
 
     p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6_github_pr_create([user=${USER:-pgollucci])
-#
-#  Args:
-#	OPTIONAL user - [${USER:-pgollucci]
-#
-#>
-######################################################################
-p6_github_pr_create() {
-    local user="${1:-${USER:-pgollucci}}"
-
-    p6_github_gh_cmd pr create -a "$user" -f
 }

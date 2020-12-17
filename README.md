@@ -71,6 +71,7 @@
 - code rc = p6_github_gh_cmd(cmd, ...)
 - p6_github_gh_pr_checkout(pr, ...)
 - p6_github_gh_pr_comment(pr, ...)
+- p6_github_gh_pr_create([user=${USER:-pgollucci])
 - p6_github_gh_pr_list()
 - p6_github_gh_pr_merge(pr, ...)
 - p6_github_gh_pr_view(pr, ...)
@@ -83,8 +84,7 @@
 
 #### pr.sh:
 
-- p6_github_pr_create([user=${USER:-pgollucci])
-- p6_github_pr_submit(msg)
+- p6_github_gh_pr_submit(msg)
 
 #### util.sh:
 
