@@ -21,3 +21,5 @@ projen/projen
 eladb/cdk8s-image
 eladb/cdk8s-operator
 aws/json2jsii
+pahud/eks-cdk8s-refarch
+pahud/ecr-public-action
