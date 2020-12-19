@@ -16,7 +16,7 @@ cdk-patterns/serverless
 construct-catalog/catalog
 construct-catalog/public-site
 hashicorp/terraform-cdk
-kubernetes-sgs/aws-load-balancer-controller
+kubernetes-sigs/aws-load-balancer-controller
 projen/projen
 eladb/cdk8s-image
 eladb/cdk8s-operator
