@@ -87,6 +87,7 @@
 #### pr.sh:
 
 - p6_github_gh_pr_submit(msg)
+- str name = p6_git_branch_name_gen([prefix=branch])
 
 #### util.sh:
 
